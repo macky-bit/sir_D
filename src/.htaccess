@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+# Ensure the rules are only applied to non-existing files and directories
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite any URL without a file extension to .php
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
